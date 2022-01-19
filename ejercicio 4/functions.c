@@ -13,7 +13,7 @@ int  mates(){
     do{
         printf("Introdueix una nota: \n");
         scanf("%d",&num);
-        return num;
     }while(num<0 || num>10);
-
+    
+    return num;
 }
