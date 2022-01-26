@@ -9,4 +9,4 @@
 #define FUNCTIONS_H_
 #endif
 
-int intercanvi(int, int);
+void intercanvi(int *, int *);

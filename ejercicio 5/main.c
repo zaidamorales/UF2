@@ -5,7 +5,6 @@
  *      Author: admin-pg
  */
 
-
 #include <stdio.h>
 #include "functions.h"
 
@@ -17,5 +16,8 @@ void main (){
 	printf("Introduce el segundo valor:");
 	scanf("%d", &num2);
 
-	intercanvi(num1, num2);
+	intercanvi(&num1, &num2);
+	printf ("Primer valor: %d \nSegundo valor: %d", num1, num2 );
+
 }
+
