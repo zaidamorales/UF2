@@ -5,6 +5,8 @@
  *      Author: admin-pg
  */
 
+#include <stdio.h>
+
 int validacion(){
 	int num;
 	do{
@@ -15,14 +17,14 @@ int validacion(){
 }
 
 int numero(int num){
-    int sum=0,i=0;
+    int aux=0, aux1=0,i=0;
    printf("\nSecuencia ordenada:");
-   while (sum+i<=num){
-        i++;
-        printf("%d ",i);
-        if (sum+i<=num){
-            sum=sum+i;
-        }
+   for (i = 1; i < num; i++){
+	   aux +=i;
+	   if (aux < num){
+		   printf("%d ", i);
+		   aux1 += i;
+	   }
    }
-   printf("\nSuma total: %d",sum);
+   printf("\nSuma total: %d",aux1);
 }

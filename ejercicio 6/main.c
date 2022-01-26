@@ -5,6 +5,7 @@
  *      Author: admin-pg
  */
 
+
 #include <stdio.h>
 #include "functions.h"
 
@@ -16,4 +17,3 @@ void main(){
     numero(num);
 
 }
-
