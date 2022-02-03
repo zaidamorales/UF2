@@ -8,37 +8,73 @@
 #include <stdio.h>
 #include "functions.h"
 
-int llegirnum(char *msg){//función de entrada de datos
-    int num;
-    do{//validación de datos
-    	printf("%s", msg);
-    	scanf("%d", &num);
-    }while(num<1 || num>50);
-    return num;
-}
-void getvalues(int *vector,int num){//función que obtiene los valores
-	int i=0;
-	while (i<num){//recorrer el array
-		do{//validación de que el número se encuentre entre 1 y 10
-		printf("Introdueix un valor dins l'array (entre 0 i 10):\n");
-		scanf("%d",&vector[i]);
-		}while(vector[i]<0 || vector[i]>10);
-		i++;
-	}
-}
-void calculate(int *vector,int num){//función que calcula
-	int i,sum=0,min=vector[0],max=vector[0];
-	for(i=0;i<num;i++){//sumatorio para calcular la media
-		sum=sum+vector[i];
-		if(max<vector[i]){
-			max=vector[i];
-		}
-		else if(min>vector[i]){
-			min=vector[i];
-		}
-	}
-	printf("La media es de %d\n",sum/num);
-	printf("El valor màxim de l'array és: %d\n",max);
-	printf("El valor mínim de l'array és: %d\n",min);
+float validar(char *msg, int ini, int final) {
+
+	float num;
+	do {
+		printf("%s", msg);
+		scanf("%f", &num);
+	} while (num < ini || num > final);
+
+	return num;
 }
 
+void omplir(float *num, int size) {
+
+	int i;
+
+	for (i = 0; i < size; i++) {
+		num[i] = validar(MSG2, 1, 10);
+	}
+}
+
+float mitjana(float *num, int size) {
+
+	int i;
+	float j = 0;
+
+	for (i = 0; i < size; i++) {
+		j += num[i];
+	}
+	return j / size;
+}
+
+float max(float *num, int size) {
+
+	int i;
+	float j = 0;
+
+	for (i = 0; i < size; i++) {
+		if (num[i] > j) {
+			j = num[i];
+		}
+	}
+	return j;
+}
+
+float min(float *num, int size) {
+
+	int i = 0;
+	float j = 1;
+
+	j = num[i];
+	for (i = 0; i < size; i++) {
+		if (j > num[i]) {
+			j = num[i];
+		}
+	}
+	return j;
+}
+
+void order(float *num, int size) {
+
+	for (int i = 0; i < size - 1; i++){
+		for (int j = i + 1; j < size; j++){
+			if (num[i] > num[j]) {
+				float canvi = num[i];
+				num[i] = num[j];
+				num[j] = canvi;
+			}
+		}
+	}
+}
