@@ -11,7 +11,7 @@
 void validar(){
 	int size;
 	do{
-		printf("Introduce el tamaño del array:");
+		printf("Introduce el tamaño del array:\n");
 		scanf("%d", &size);
 	}while(size<=1 && size>=50);
 
@@ -36,8 +36,19 @@ void rellenar(int size){
 		mostrar(lista, size);
 	}
 
-void mostrar(int *llista, int size){
-	for (int i = 0; i<size; i++){
-		printf("%d  ", llista[i]);
+void mostrar(int *llista, int size) {
+	for (int i = 0; i < size - 1; i++) {
+		for (int j = i + 1; j < size; j++) {
+			if (llista[i] < llista[j]) {
+				int canvi = llista[i];
+				llista[i] = llista[j];
+				llista[j] = canvi;
+			}
+
+		}
 	}
+	printf("\n");
+	for (int i = 0; i < size; i++) {
+			printf("%d  ", llista[i]);
+		}
 }
